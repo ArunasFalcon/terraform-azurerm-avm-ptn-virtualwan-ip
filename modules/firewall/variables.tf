@@ -88,3 +88,8 @@ The key is deliberately arbitrary to avoid issues with known after apply values.
 
   DESCRIPTION
 }
+
+variable "public_ip_address_id" {
+  type = string
+  default = ""
+}
