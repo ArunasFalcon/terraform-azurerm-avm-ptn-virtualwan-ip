@@ -10,13 +10,9 @@ resource "azurerm_firewall" "fw" {
   tags                = try(each.value.tags, {})
   zones               = each.value.zones
 
-  dynamic "ip_configuration" {
-    for_each = var.public_ip_address_id == "" ? [] : ["1"]
-    content {
-      name = "default"
-      public_ip_address_id = var.public_ip_address_id
-      
-    }
+  ip_configuration {
+    name = "default"
+    public_ip_address_id = var.public_ip_address_id == "" ? null : var.public_ip_address_id
   }
 
   virtual_hub {
