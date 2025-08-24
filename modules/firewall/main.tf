@@ -11,8 +11,8 @@ resource "azurerm_firewall" "fw" {
   zones               = each.value.zones
 
   ip_configuration {
-    name = "default"
-    public_ip_address_id = var.public_ip_address_id == "" ? null : var.public_ip_address_id
+    name                 = "default"
+    public_ip_address_id = each.value.public_ip_address_id == "" ? null : each.value.public_ip_address_id
   }
 
   virtual_hub {

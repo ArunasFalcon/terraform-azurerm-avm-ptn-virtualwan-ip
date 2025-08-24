@@ -65,6 +65,7 @@ variable "firewalls" {
     name                 = string
     zones                = optional(list(number), [1, 2, 3])
     firewall_policy_id   = optional(string)
+    public_ip_address_id = optional(string)
     vhub_public_ip_count = optional(string, null)
     tags                 = optional(map(string))
   }))
@@ -87,9 +88,4 @@ The key is deliberately arbitrary to avoid issues with known after apply values.
 > Note: There can be multiple objects in this map, one for each Azure Firewall you wish to deploy into the Virtual WAN Virtual Hubs that have been defined in the variable `virtual_hubs`.
 
   DESCRIPTION
-}
-
-variable "public_ip_address_id" {
-  type = string
-  default = ""
 }
