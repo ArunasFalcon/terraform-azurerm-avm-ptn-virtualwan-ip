@@ -109,9 +109,9 @@ variable "er_circuit_connections" {
       associated_route_table_id  = optional(string)
       associated_route_table_key = optional(string)
       propagated_route_table = optional(object({
-        route_table_ids = optional(list(string))
+        route_table_ids  = optional(list(string))
         route_table_keys = optional(list(string))
-        labels          = optional(list(string))
+        labels           = optional(list(string))
       }))
       inbound_route_map_id  = optional(string)
       outbound_route_map_id = optional(string)
@@ -414,9 +414,9 @@ variable "virtual_network_connections" {
       associated_route_table_id  = optional(string)
       associated_route_table_key = optional(string)
       propagated_route_table = optional(object({
-        route_table_ids = optional(list(string), [])
+        route_table_ids  = optional(list(string), [])
         route_table_keys = optional(list(string), [])
-        labels          = optional(list(string), [])
+        labels           = optional(list(string), [])
       }))
       static_vnet_route = optional(object({
         name                = optional(string)

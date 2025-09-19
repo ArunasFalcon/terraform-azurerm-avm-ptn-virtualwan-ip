@@ -39,7 +39,7 @@ The following providers are used by this module:
 
 The following resources are used by this module:
 
-- [azurerm_virtual_hub.virtual_hub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_hub) (resource)
+- [module.virtual_hubs.azurerm_virtual_hub.virtual_hub](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_hub) (resource)
 
 <!-- markdownlint-disable MD013 -->
 ## Required Inputs

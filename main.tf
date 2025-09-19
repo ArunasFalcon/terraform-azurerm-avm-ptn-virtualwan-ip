@@ -39,16 +39,11 @@ module "virtual_hubs" {
   }
 }
 
-moved {
-  from = azurerm_virtual_hub.virtual_hub
-  to   = module.virtual_hubs.azurerm_virtual_hub.virtual_hub
-}
-
 resource "azurerm_virtual_hub_route_table" "virtual_hub_route_table" {
   for_each = var.virtual_hub_route_tables
 
   name           = each.value.name
-  virtual_hub_id = azurerm_virtual_hub.virtual_hub[each.value.virtual_hub_key].id
+  virtual_hub_id = module.virtual_hubs[each.value.virtual_hub_key].id
   labels         = each.value.labels
 
   dynamic "route" {
