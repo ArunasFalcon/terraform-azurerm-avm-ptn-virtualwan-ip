@@ -14,12 +14,6 @@ module "express_route_gateways" {
   }
 }
 
-moved {
-  from = azurerm_express_route_gateway.express_route_gateway
-  to   = module.express_route_gateways.azurerm_express_route_gateway.express_route_gateway
-}
-
-
 # Create the Express Route Connection
 module "er_connections" {
   source = "./modules/expressroute-gateway-conn"
@@ -36,9 +30,4 @@ module "er_connections" {
       routing_weight                       = try(conn.routing_weight, null)
     }
   }
-}
-
-moved {
-  from = azurerm_express_route_connection.er_connection
-  to   = module.er_connections.azurerm_express_route_connection.er_connection
 }
